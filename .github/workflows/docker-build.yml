@@ -6,7 +6,7 @@ on:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       -
         name: Login to Docker Hub
@@ -29,4 +29,3 @@ jobs:
           tags: ${{ vars.DOCKERHUB_USERNAME }}/docker_ci_cd:1.1
 
 
-          
