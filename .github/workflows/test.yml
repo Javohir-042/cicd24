@@ -1,5 +1,4 @@
 name: Check
-
 on: push
 
 jobs:
@@ -10,5 +9,17 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci
-      - name: Run lint
+      - name: Run Lint
         run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Tests
+        env:
+          PORT: ${{ secrets.PORT }}
+        run: npm run test
